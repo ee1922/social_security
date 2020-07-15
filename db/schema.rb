@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_162741) do
+ActiveRecord::Schema.define(version: 2020_07_15_035838) do
+
+  create_table "locations", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "langitude"
+    t.string "longitude"
+    t.string "zip_code"
+    t.string "street"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "records", force: :cascade do |t|
     t.integer "user_id"
@@ -22,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_162741) do
   end
 
   create_table "relatives", force: :cascade do |t|
-    t.string "relative_id"
     t.string "name"
     t.string "email"
     t.integer "tel_number"
@@ -33,7 +42,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_162741) do
   end
 
   create_table "send_records", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "record_id"
     t.integer "receiver_id"
     t.datetime "created_at", null: false
@@ -41,7 +49,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_162741) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
     t.string "email"
     t.integer "tel_number"
