@@ -38,6 +38,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'hirb', '~> 0.7.3'
 
+gem 'bcrypt', '~> 3.1', '>= 3.1.5'
+
+gem "rack-cors", :require => 'rack/cors'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
