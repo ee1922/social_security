@@ -1,5 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+# == Schema Information
+#
+# Table name: send_records
+#
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  receiver_id :integer
+#  record_id   :integer
+#
 one:
   user_id: 1
   record_id: 1

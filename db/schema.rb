@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_154034) do
+ActiveRecord::Schema.define(version: 2020_07_23_123749) do
 
   create_table "locations", force: :cascade do |t|
     t.integer "user_id"
@@ -20,6 +20,31 @@ ActiveRecord::Schema.define(version: 2020_07_15_154034) do
     t.string "street"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "meter_reading_streams", force: :cascade do |t|
+    t.integer "volume_consummed", default: 0, null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_meter_reading_streams_on_user_id"
+  end
+
+  create_table "prepaid_waters", force: :cascade do |t|
+    t.integer "volume_left"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_prepaid_waters_on_user_id"
+  end
+
+  create_table "purchase_histories", force: :cascade do |t|
+    t.integer "volume_purchased", default: 0, null: false
+    t.integer "price", default: 0, null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_purchase_histories_on_user_id"
   end
 
   create_table "records", force: :cascade do |t|
